@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="Browse and filter a list of Pokémon based on type, color, gender, and text search with the Pokémon Catalog App. Built with HTML5, JavaScript, Bootstrap, LESS, and Webpack">
+	    <meta name="keywords" content="Pokémon, Catalog, App, Filter, Browse, Type, Color, Gender, Search, HTML5, JavaScript, Bootstrap, LESS, Webpack">
+	    <meta name="author" content="Cristian Montoya">
+		<title>Pokemon Catalog</title>
+
+	    <!-- CSS file -->
+	    <link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+	    <!-- Main Content -->
+	    <main class="page-wrapper">
+		    <!-- Header -->
+		    <header class="navbar fixed-top">
+		    	<div class="container position-relative h-100">
+		    		<a class="navbar-logo h-100" href="index.html">
+		    			<img src="./images/pokeapi_logo.png" class="h-100" alt="PokeApi">
+		    		</a>
+			        <form class="searcher">
+			        	<button class="" type="reset">
+			        		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="1em"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+			        	</button>
+			        	<svg class="magnifying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1em"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+			        	<input class="form-control form-control-lg px-5" type="search" placeholder="Type to search">
+			        </form>			        
+			    </div>
+		    </header>
+		    <!-- End Header -->
+
+	        <div class="container">
+
+	        	<div class="row">
+
+		            <!-- Filters -->
+		            <aside class="col-lg-3 filters py-lg-3">
+		            	<div class="offcanvas-lg offcanvas-start" id="filter-sidebar">
+		            		<div class="offcanvas-header border-bottom">
+		            			<h5 class="offcanvas-title d-flex justify-content-center align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="0.9em" class="me-1"><path d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/></svg>Filters</h5>
+		            			<button class="btn-close" type="button" data-bs-dismiss="offcanvas" data-bs-target="#filter-sidebar" aria-label="Close"></button>
+		            		</div>
+
+		            		<!-- Filters Body -->
+		            		<div class="offcanvas-body">
+		            			<div>
+					                <h2 class="pb-2 pb-sm-3 d-none d-lg-block d-flex justify-content-center align-items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1em" class="me-1"><path d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/></svg>Filters</h2>
+					                <div class="accordion accordion-alt pb-2" id="filters">
+					                	<div class="accordion-item mb-0">
+					                		<h4 class="accordion-header">
+					                			<button class="accordion-button fs-xl fw-medium py-2" type="button" data-bs-toggle="collapse" data-bs-target="#type" aria-expanded="true" aria-controls="type">
+					                				<span class="fs-base">Type</span>
+					                			</button>
+					                		</h4>
+					                		<div class="accordion-collapse collapse show" id="type" aria-labelledby="type">
+					                			<div class="accordion-body py-1 mb-1">
+					                				<div class="row"></div>
+					                			</div>
+					                		</div>
+					                	</div>
+					                	<div class="accordion-item mb-0">
+					                		<h4 class="accordion-header">
+					                			<button class="accordion-button fs-xl fw-medium py-2" type="button" data-bs-toggle="collapse" data-bs-target="#color" aria-expanded="true" aria-controls="color">
+					                				<span class="fs-base">Color</span>
+					                			</button>
+					                		</h4>
+					                		<div class="accordion-collapse collapse show" id="color"  aria-labelledby="color">
+					                			<div class="accordion-body py-1 mb-1">
+					                				<div class="row"></div>
+					                			</div>
+					                		</div>
+					                	</div>
+					                	<div class="accordion-item mb-0">
+					                		<h4 class="accordion-header">
+					                			<button class="accordion-button fs-xl fw-medium py-2" type="button" data-bs-toggle="collapse" data-bs-target="#gender" aria-expanded="true" aria-controls="gender">
+					                				<span class="fs-base">Gender</span>
+					                			</button>
+					                		</h4>
+					                		<div class="accordion-collapse collapse show" id="gender"  aria-labelledby="gender">
+					                			<div class="accordion-body py-1 mb-1">
+					                				<div class="row"></div>
+					                			</div>
+					                		</div>
+					                	</div>
+					                </div>
+					                <button class="btn btn-danger w-100 mb-4 clean-btn">Clean</button>
+				                </div>
+				            </div>
+				            <!-- End Filters Body -->
+				        </div>
+		            </aside>
+		            <!-- End Filters -->
+
+		            <!-- Product Container -->
+		            <div class="col-lg-9 product-container py-3">
+		            	<h1 class="pb-3">Choose the pokemon to get more information</h1>
+
+		                <!-- Product List -->
+		                <div class="product-list row row-cols-3 row-cols-md-4 g-3 mb-4"></div>
+		                <!-- End Product List -->
+
+		                <div class="row">
+			                <div class="col d-flex justify-content-center">
+			                	<button class="load-more btn btn-primary">Load More</button>
+			                </div>
+		                </div>
+		            </div>
+		            <!-- End Product Container -->
+
+		        </div>
+
+	        </div>
+
+	        <!-- Button Filters Mobile View -->
+	        <button class="d-lg-none btn btn-primary w-100 rounded-0 fixed-bottom d-flex justify-content-center align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#filter-sidebar">
+	        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1em" class="me-1"><path d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/></svg>
+	        	Filters
+	        </button>
+	        <!-- End Button Filters Mobile View -->
+
+		    <!-- Footer -->
+		    <footer class="py-4">
+		    	<div class="container">
+		        	<p class="text-center">&copy; 2024 Pokemon. All rights reserved.</p>
+		        </div>
+		    </footer>
+		    <!-- End Footer -->
+	    </main>
+	    <!-- End Main Content -->
+
+	    <!-- JavaScript file -->
+	    <script src="js/script.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+	</body>
+</html>

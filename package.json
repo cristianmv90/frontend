@@ -1,0 +1,23 @@
+{
+  "name": "Seat Cristian Montoya",
+  "version": "1.0.0",
+  "description": "Seat Cristian Montoya",
+  "scripts": {
+    "compileCss": "lessc app/resources/less/index.less app/public/css/styles.css",
+    "watchCSS": "watch \"npm run compileCss\" app/resources/less",
+    "compileJs": "webpack --config webpack.config.js",
+    "watchJs": "watch \"npm run compileJs\" app/resources/js",
+    "watchAll": "watch \"npm run compileJs && npm run compileCss\" app/resources"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "less": "^4.2.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2",
+    "watch": "^1.0.2",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}

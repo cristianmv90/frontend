@@ -1,0 +1,29 @@
+/* Define mixins */
+.rounded-corners(@radius) {
+    border-radius: @radius;
+}
+
+.navbar > .container{
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.btn-primary{
+    color: @btn-primary-color;
+    font-weight: bold;
+    fill: #feca1b;
+    background: @btn-primary-bg-color;
+    border-color: @btn-primary-bg-color;
+    text-transform: uppercase;
+}
+
+.btn-danger{
+    font-weight: bold;
+    text-transform: uppercase;
+}

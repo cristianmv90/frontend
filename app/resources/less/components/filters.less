@@ -1,0 +1,72 @@
+/* Filters styles */
+aside.filters {
+    background-color: @primary-color;
+    border-right: 1px solid @border-color;
+
+    h2{
+        font-family: 'lato-black';
+    }
+
+    .form-check {
+        label{
+            cursor: pointer
+        }
+    }
+
+    .form-check-color{
+
+        input{
+            visibility: hidden;
+
+            &:checked{
+                & + .color-element:before{
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-left: 4px solid transparent;
+                    border-right: 4px solid transparent;
+                    border-top: 4px solid black;
+                    top: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 1;
+                }
+
+                & + .color-element:after{
+                    content: '';
+                    position: absolute;
+                    width: 17px;
+                    height: 17px;
+                    border: solid 2px black;
+                    border-radius: 0.3rem;
+                    z-index: 1;
+                }
+            }
+        }
+
+        .color-element{
+            width: 17px;
+            height: 17px;
+            position: absolute;
+            left: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    aside.filters {
+
+        & > #filter-sidebar{
+            position: sticky;
+            top: 81px;
+
+            .offcanvas-body{
+                display: block;
+            }
+        }
+    }
+}

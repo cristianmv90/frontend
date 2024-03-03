@@ -1,0 +1,25 @@
+/* Product styles */
+.product-list {
+    .card {
+        cursor: pointer;
+        transition-duration:.3s;
+
+        &:hover{
+            transform: scale(1.05);
+        }
+
+        h5{
+            font-family: 'lato-black';
+            font-size: 1em;
+            text-transform: capitalize;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .product-list {
+        .card h5{
+            font-size: 0.8em;
+        }
+    }
+}
